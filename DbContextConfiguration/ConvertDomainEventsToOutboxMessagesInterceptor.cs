@@ -33,12 +33,7 @@ public sealed class ConvertDomainEventsToOutboxMessagesInterceptor
                 Id = Guid.NewGuid(),
                 OccurredOnUtc = DateTime.UtcNow,
                 Type = domainEvent.GetType().Name,
-                Content = JsonConvert.SerializeObject(
-                    domainEvent,
-                    new JsonSerializerSettings
-                    {
-                        TypeNameHandling = TypeNameHandling.All
-                    })
+                Content = JsonConvert.SerializeObject(domainEvent)
             })
             .ToList();
 

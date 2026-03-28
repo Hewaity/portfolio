@@ -9,7 +9,7 @@ public static class DependencyInjection
     public static IServiceCollection AddDbContextWithInterceptors(
         this IServiceCollection services)
     {
-        services.AddSingleton<ConvertDomainEventsToOutboxMessagesInterceptor>();
+        services.AddScoped<ConvertDomainEventsToOutboxMessagesInterceptor>();
 
         services.AddDbContext<ApplicationDbContext>((sp, op) =>
         {
